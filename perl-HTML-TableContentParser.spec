@@ -12,6 +12,8 @@ Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
 Patch0:     perl-HTML-TableContentParser-0.13-fix-tests.patch
 
+BuildRequires: perl(HTML::Parser)
+
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
@@ -51,5 +53,3 @@ rm -rf %{buildroot}
 %doc README Changes
 %{_mandir}/man3/*
 %perl_vendorlib/*
-
-

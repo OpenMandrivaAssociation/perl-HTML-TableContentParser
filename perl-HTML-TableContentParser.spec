@@ -1,21 +1,21 @@
 %define upstream_name    HTML-TableContentParser
 %define upstream_version 0.13
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    Do interesting things with the contents of tables
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
+Summary:	Do interesting things with the contents of tables
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
-Patch0:     perl-HTML-TableContentParser-0.13-fix-tests.patch
+Patch0:		perl-HTML-TableContentParser-0.13-fix-tests.patch
 
-BuildRequires: perl(HTML::Parser)
+BuildRequires:	perl-devel
+BuildRequires:	perl(HTML::Parser)
 
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildArch:	noarch
 
 %description
 This package pulls out the contents of a table from a string containing
@@ -35,21 +35,30 @@ The format of each hash will look something like
 %patch0 -p1 -b .tests
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc README Changes
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
+
+%changelog
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 0.130.0-2mdv2011.0
++ Revision: 654973
+- rebuild for updated spec-helper
+
+* Tue Dec 22 2009 Jérôme Quelin <jquelin@mandriva.org> 0.130.0-1mdv2011.0
++ Revision: 481286
+- adding missing buildrequires:
+- import perl-HTML-TableContentParser
+
+
+* Mon Dec 21 2009 cpan2dist 0.13-1mdv
+- initial mdv release, generated with cpan2dist

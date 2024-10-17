@@ -8,7 +8,7 @@ Release:	5
 Summary:	Do interesting things with the contents of tables
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
 Patch0:		perl-HTML-TableContentParser-0.13-fix-tests.patch
 

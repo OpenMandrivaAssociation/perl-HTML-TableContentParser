@@ -12,6 +12,7 @@ Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
 Patch0:		perl-HTML-TableContentParser-0.13-fix-tests.patch
 
+BuildRequires:	make
 BuildRequires:	perl-devel
 BuildRequires:	perl(HTML::Parser)
 

@@ -1,15 +1,13 @@
 %define upstream_name    HTML-TableContentParser
-%define upstream_version 0.13
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Version:	0.13
+Release:	6
 
 Summary:	Do interesting things with the contents of tables
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{version}.tar.gz
 Patch0:		perl-HTML-TableContentParser-0.13-fix-tests.patch
 
 BuildRequires:	make
@@ -32,7 +30,7 @@ The format of each hash will look something like
   @{$table_rows}        rows discovered, in order
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 %patch0 -p1 -b .tests
 
 %build
